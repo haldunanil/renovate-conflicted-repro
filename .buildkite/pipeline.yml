@@ -8,7 +8,5 @@ steps:
           image: "renovate/renovate"
           volumes:
             - "config.js:/usr/src/app/config.js"
-            - "/tmp:/tmp"
-            - "/var/run/docker.sock:/var/run/docker.sock"
           environment:
             - RENOVATE_TOKEN=$GITHUB_API_TOKEN
