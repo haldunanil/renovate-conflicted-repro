@@ -6,7 +6,7 @@
   "author": "Haldun Anil <haldun.anil@braze.com>",
   "license": "MIT",
   "dependencies": {
-    "react": "17",
-    "react-dom": "17"
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0"
   }
 }
