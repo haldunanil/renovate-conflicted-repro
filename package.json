@@ -1,0 +1,12 @@
+{
+  "name": "renovate-conflicted-repro",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:haldunanil/renovate-conflicted-repro.git",
+  "author": "Haldun Anil <haldun.anil@braze.com>",
+  "license": "MIT",
+  "dependencies": {
+    "react": "17",
+    "react-dom": "17"
+  }
+}
