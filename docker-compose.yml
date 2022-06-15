@@ -1,0 +1,11 @@
+version: "3.6"
+services:
+  buildkite:
+    image: buildkite/agent
+    volumes:
+      - "/tmp:/tmp"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "${HOME}/.ssh:/root/.ssh"
+      - ".buildkite/environment:/buildkite/hooks/environment"
+    # must contain variables 'BUILDKITE_AGENT_TOKEN' and 'GITHUB_API_TOKEN'
+    env_file: './.env.local'

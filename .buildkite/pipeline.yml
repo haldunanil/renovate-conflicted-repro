@@ -2,6 +2,7 @@
 ---
 steps:
   - label: ":pipeline: Renovate"
+    key: renovate
     plugins:
       - docker#v3.13.0:
           image: "renovate/renovate"

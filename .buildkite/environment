@@ -1,0 +1,8 @@
+#!/bin/bash
+set -euo pipefail
+
+if [[ "$BUILDKITE_PIPELINE_SLUG" == "renovatebot-repro" ]]; then
+  if [[ "$BUILDKITE_STEP_KEY" == "renovate" ]]; then
+    export GITHUB_API_TOKEN=$GITHUB_API_TOKEN
+  fi
+fi
