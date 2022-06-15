@@ -7,6 +7,6 @@ steps:
       - docker#v3.13.0:
           image: "renovate/renovate"
           volumes:
-            - "./config.js:/usr/src/app/config.js"
+            - "$PWD/config.js:/usr/src/app/config.js"
           environment:
             - RENOVATE_TOKEN=$GITHUB_API_TOKEN
