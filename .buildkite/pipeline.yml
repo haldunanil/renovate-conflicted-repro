@@ -7,6 +7,7 @@ steps:
       - docker#v3.13.0:
           image: "renovate/renovate"
           volumes:
-            - "$PWD/config.js:/usr/src/app/config.js"
+            - "config.js:/usr/src/app/config.js"
           environment:
             - RENOVATE_TOKEN=$GITHUB_API_TOKEN
+            - RENOVATE_REPOSITORIES=haldunanil/renovate-conflicted-repro
