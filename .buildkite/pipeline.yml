@@ -1,0 +1,11 @@
+# This pipeline is to ensure that we update dependencies across the org as needed
+---
+steps:
+  - label: ":pipeline: Renovate"
+    plugins:
+      - docker#v3.13.0:
+          image: "renovate/renovate"
+          volumes:
+            - "config.js:/usr/src/app/config.js"
+          environment:
+            - RENOVATE_TOKEN=$GITHUB_API_TOKEN
