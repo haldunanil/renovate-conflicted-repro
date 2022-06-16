@@ -2,6 +2,24 @@
 
 This repo is meant to reproduce the `conflicted` issue on Renovatebot noted in this discussion: https://github.com/renovatebot/renovate/discussions/16094
 
+## Issue
+
+Note that in https://github.com/haldunanil/renovate-conflicted-repro/blob/main/renovate.json, there is a key for `rebaseWhen` that is set to `conflicted`. However, if you go to the [issue that was created](https://github.com/haldunanil/renovate-conflicted-repro/pull/4), you'll note that it says:
+
+> ♻ Rebasing: Whenever PR is behind base branch, or you tick the rebase/retry checkbox.
+
+which is not the behavior expected when `rebaseWhen="conflicted"`.
+
+### Expected behavior
+
+When `rebaseWhen` is set to `conflicted` using a self-hosted Renovate, the PRs created should only be rebased when there's a merge conflict.
+
+### Actual behavior
+
+When `rebaseWhen` is set to `conflicted` using a self-hosted Renovate, the PRs created are rebased whenever they fall behind the base branch.
+
+## Reproducing on self-hosted
+
 For this repo to work, you will need `node` and `docker` installed in your system. To get started, fork this repo. Afterward, run:
 
 ```sh
@@ -25,10 +43,3 @@ Once `.env.local` is created, run `docker compose up` in the root of the repo to
 
 Finally, click on `New Build` in the `Renovatebot Repro` pipeline to kick off a build. After a few seconds, you Renovatebot should first create an issue that summarizes the upcoming PRs it will create (unless it's before 9am on Monday, then it'll create the PRs too!). Check off the line item that says `chore(deps): pin dependencies (@types/react, @types/react-dom)` and click `New Build` again on Buildkite. This will produce an actual PR (if one didn't exist already) to renovate those packages.
 
-## Issue
-
-Note that in https://github.com/haldunanil/renovate-conflicted-repro/blob/main/renovate.json, there is a key for `rebaseWhen` that is set to `conflicted`. However, if you go to the [issue that was created](https://github.com/haldunanil/renovate-conflicted-repro/pull/4), you'll note that it says:
-
-> ♻ Rebasing: Whenever PR is behind base branch, or you tick the rebase/retry checkbox.
-
-which is not the behavior expected when `rebaseWhen="conflicted"`.
